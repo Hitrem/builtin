@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   shell.h                                            :+:      :+:    :+:   */
+/*   var.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: raudiber <raudiber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/03/24 22:10:20 by raudiber          #+#    #+#             */
-/*   Updated: 2014/03/25 21:01:42 by raudiber         ###   ########.fr       */
+/*   Created: 2014/03/25 19:56:56 by raudiber          #+#    #+#             */
+/*   Updated: 2014/03/25 20:05:16 by raudiber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHELL_H
-# define SHELL_H
+#include "shell.h"
 
-# include <libft.h>
-# include <stdio.h>
+char		*grep_var(char *param)
+{
+	char	*var;
+	int		index;
 
-char		**get_env(void);
-void		print_env(char **env);
-
-int		ft_unsetenv(char ***env, char *name);
-int		grep_var(char *name, char **env);
-int		ft_setenv(char ***env, char *name, char *value, int over);
-
-#endif /* !SHELL_H */
+	index = 7;
+	var = (char*)malloc(sizeof(char*) * (ft_strlen(param) + 1));
+	while (param[index] != ' ' && param[index])
+	{
+		var[index - 7] = param[index];
+		index++;
+	}
+	var = ft_strjoin(var, "=");
+	var[index - 6] = '\0';
+	return (var);
+}

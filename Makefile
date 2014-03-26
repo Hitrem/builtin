@@ -6,7 +6,7 @@
 #    By: raudiber <raudiber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/12/01 18:50:57 by raudiber          #+#    #+#              #
-#    Updated: 2014/03/24 22:18:22 by raudiber         ###   ########.fr        #
+#    Updated: 2014/03/25 20:59:01 by raudiber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,10 @@ PATH_SRC = ./srcs/
 
 SRC = main.c \
 		env.c \
+		setenv.c \
+		unsetenv.c \
+		env_var.c \
+		get_env.c \
 
 SRCS = $(addprefix $(PATH_SRC), $(SRC))
 OBJS = $(addprefix $(PATH_SRC), $(SRC:.c=.o))
